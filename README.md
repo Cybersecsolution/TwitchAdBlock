@@ -45,14 +45,7 @@ twitch.tv##+js(twitch-videoad)
    https://raw.githubusercontent.com/pixeltris/TwitchAdSolutions/master/video-swap-new/video-swap-new-ublock-origin.js
    ```
 
-### **3. Add Multiple URLs (if Needed)**
-- If another script URL is already specified, append a space and then add the new URL.  
-   Example:
-   ```plaintext
-   userResourcesLocation https://existing-url.com/script.js https://raw.githubusercontent.com/pixeltris/TwitchAdSolutions/master/video-swap-new/video-swap-new-ublock-origin.js
-   ```
-
-### **4. Save the Changes**
+### **3. Save the Changes**
 - Click **"Apply changes"** or save the editor.
 
 ## **Step 4: Restart uBlock Origin**
@@ -109,3 +102,4 @@ twitch.tv##+js(twitch-videoad)
 
 4. **Stay Updated:**  
    Regularly check the script and filter for updates as Twitch evolves its ad systems.
+
