@@ -100,6 +100,3 @@ Ensure the following:
 4. **Combine with DNS Blocking:**  
    - Use a service like **NextDNS** to block Twitch-related ad domains for an extra layer of protection.
 
-## **Credits**  
-- **Custom Script Author**: [Pixeltris](https://github.com/pixeltris)  
-- **uBlock Origin**: [uBlock Origin on GitHub](https://github.com/gorhill/uBlock)
