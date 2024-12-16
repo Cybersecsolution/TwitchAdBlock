@@ -1,6 +1,6 @@
 # **uBlock Origin Advanced Configuration Guide**
 
-This guide explains how to configure uBlock Origin to block Twitch ads using advanced settings and a custom script.
+This guide explains how to configure **uBlock Origin** to block Twitch ads using custom filters, advanced settings, and a custom script.
 
 ## **Prerequisites**  
 Ensure the following:  
@@ -8,21 +8,32 @@ Ensure the following:
 - Basic familiarity with browser extensions.  
 - A Twitch account for testing.
 
-## **Step 1: Enable Advanced Settings in uBlock Origin**
+## **Step 1: Add Custom Filters for Twitch**
 
-### **1. Open uBlock Origin Dashboard**
+### **1. Open the “My Filters” Section**
 - Click the **uBlock Origin** icon in your browser's toolbar.  
-- Click the **gear icon** ⚙️ to open the **Dashboard**.
+- Click the **gear icon** ⚙️ to open the **Dashboard**.  
+- Go to the **"Filter lists"** tab.  
+- Scroll down to the **"My filters"** section.
 
-### **2. Enable Advanced User Mode**
-- Navigate to the **Settings** tab.  
+### **2. Add the Following Custom Filter**
+Input the following filter to block Twitch video ads:  
+```plaintext
+twitch.tv##+js(twitch-videoad)
+```
+
+### **3. Save Changes**
+- Click **"Apply changes"** at the top of the dashboard to save the filter.
+
+## **Step 2: Enable Advanced Settings in uBlock Origin**
+
+### **1. Open Advanced Settings**
+- In the Dashboard, navigate to the **"Settings"** tab.  
 - Scroll down and check the box for **"I am an advanced user"**.  
 - A **cogwheel** ⚙️ will appear next to the checkbox.  
+- Click the **cogwheel** to open the **advanced settings editor**.
 
-### **3. Open the Advanced Settings Editor**
-- Click the **cogwheel** to open the **advanced settings editor**.  
-
-## **Step 2: Modify Advanced Settings**
+## **Step 3: Modify Advanced Settings**
 
 ### **1. Locate the `userResourcesLocation` Parameter**
 - In the **advanced settings editor**, find the line for `userResourcesLocation`.  
@@ -44,19 +55,18 @@ Ensure the following:
 ### **4. Save the Changes**
 - Click **"Apply changes"** or save the editor.
 
-## **Step 3: Restart uBlock Origin**
+## **Step 4: Restart uBlock Origin**
 
 ### **1. Restart the Extension**
-- Go to your browser’s **Extension Manager**:  
+- Open your browser’s **Extension Manager**:  
    - **Chrome**: Visit `chrome://extensions/`.  
    - **Firefox**: Visit `about:addons`.  
 - Disable and re-enable the **uBlock Origin** extension.
 
 ### **2. Restart the Browser**
-- As an alternative, restart your browser completely to ensure changes take effect.
+- Alternatively, restart your browser completely to ensure changes take effect.
 
-
-## **Step 4: Test the Configuration**
+## **Step 5: Test the Configuration**
 
 ### **1. Open Twitch**
 - Visit [https://www.twitch.tv](https://www.twitch.tv) and start watching a live stream.
@@ -64,39 +74,38 @@ Ensure the following:
 ### **2. Monitor Ad Behavior**
 - Check if:  
    - Ads are completely blocked.  
-   - Ads are replaced with a clean video stream.  
+   - Ads are replaced with a clean video stream.
 
-### **3. Verify the Script is Loaded**
-- Open the uBlock Origin **Logs** (Dashboard > Logs) to confirm that the custom script is applied.  
+### **3. Verify the Script and Filter**
+- Open the **uBlock Origin Logs**:  
+   - Go to **Dashboard > Logs** to confirm that the custom script and filters are applied correctly.
 
-## **Step 5: Troubleshooting**
+## **Step 6: Troubleshooting**
 
 ### **1. Ads Still Appear**
-- Verify the `userResourcesLocation` URL:
-   - Open the advanced settings editor and confirm no typos in the URL.  
-- Ensure the script URL is accessible by visiting it directly in your browser.
+- Verify the `userResourcesLocation` URL in the **advanced settings**.  
+- Ensure the custom filter `twitch.tv##+js(twitch-videoad)` is saved under “My Filters.”
 
-### **2. Extension Not Applying Changes**
-- Double-check that you clicked **"Apply changes"** after modifying the advanced settings.  
-- Restart the browser and reload Twitch.
+### **2. Check Script Accessibility**
+- Confirm the script URL is accessible by visiting it directly:  
+   [TwitchAdSolutions Script](https://raw.githubusercontent.com/pixeltris/TwitchAdSolutions/master/video-swap-new/video-swap-new-ublock-origin.js).
 
 ### **3. Conflicting Filters**
-- Disable other uBlock Origin filters that may conflict with the custom script.  
+- Disable other conflicting filters under the “Filter lists” tab.
 
-### **4. Check for Updates**
-- Ensure the script is up-to-date by checking the **[TwitchAdSolutions GitHub Repository](https://github.com/pixeltris/TwitchAdSolutions)**.  
+### **4. Update the Script**
+- Twitch frequently updates its ad-delivery system. Ensure the script is up-to-date by visiting the [TwitchAdSolutions GitHub Repository](https://github.com/pixeltris/TwitchAdSolutions).
 
 ## **Tips**
 
 1. **Monitor Logs:**  
-   - Use the **Logs** feature in the uBlock Origin Dashboard to monitor requests and ensure the script is active.
+   Use the Logs feature in the uBlock Origin Dashboard to track requests and ensure the script and filters are applied.
 
-2. **Update the Script Regularly:**  
-   - Twitch updates its ad delivery mechanisms frequently. Stay up-to-date with the latest version of the script.
+2. **Test on Different Browsers:**  
+   Test the configuration on browsers like Firefox and Chrome to compare performance.
 
-3. **Test on Multiple Browsers:**  
-   - If the script doesn’t work on one browser, test it on another supported browser (e.g., Chrome or Firefox).
+3. **Combine with DNS Blocking:**  
+   Use services like **NextDNS** to block known Twitch ad-related domains for additional privacy.
 
-4. **Combine with DNS Blocking:**  
-   - Use a service like **NextDNS** to block Twitch-related ad domains for an extra layer of protection.
-
+4. **Stay Updated:**  
+   Regularly check the script and filter for updates as Twitch evolves its ad systems.
